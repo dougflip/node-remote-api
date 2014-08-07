@@ -10,6 +10,7 @@ coreApi =
   keyboard: new KeyboardCmds()
   mouse: new MouseCmds()
   system: new SystemCmds()
+  baseController: require('./core/base-controller-helper')
 
 coreModules = [
   require('./core/browser'),
@@ -20,6 +21,7 @@ coreModules = [
 
 plugins = [
   require('./plugins/netflix')
+  require('./plugins/youtube')
 ]
 
 class Router

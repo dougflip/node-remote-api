@@ -1,6 +1,6 @@
 ## API Routes
 
-#### Core Routes
+#### Core Remote
 
 - `/browser/launch` (launch may just handle "search" based on the input)
 - `/browser/search` (https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options: -search "term")
@@ -29,7 +29,7 @@
 - '/system/list-windows' (may not be supported by xdotool)
 - '/system/switch-window' (alt+tab)
 
-#### Netflix Plugin (http://markwarren.wordpress.com/2010/03/24/netflix-movie-player-keyboard-shortcuts/)
+#### Netflix Remote
 
 - `/netflix/play` (PgUp)
 - `/netflix/pause` (PgDn)
@@ -43,9 +43,40 @@
 - `/netflix/frame-back` (left - after entering keyframe mode)
 - `/netflix/frame-forward` (right - after entering keyframe mode)
 
-#### Spotify Plugin (new)
+[http://markwarren.wordpress.com/2010/03/24/netflix-movie-player-keyboard-shortcuts/](http://markwarren.wordpress.com/2010/03/24/netflix-movie-player-keyboard-shortcuts/)
 
-- `/spotify/play`
-- `/spotify/pause`
-- `/spotify/next`
-- `/spotify/previous`
+#### Youtube Remote (implemented, but not tested)
+
+- `/youtube/launch`
+- `/youtube/search`
+- `/youtube/full-screen`
+- `/youtube/exit-full-screen`
+- `/youtube/toggle-play-pause`
+- `/youtube/frame-back-short` (left)
+- `/youtube/frame-back` (ctrl + left)
+- `/youtube/frame-forward-short` (right)
+- `/youtube/frame-forward` (ctrl + right)
+- `/youtube/seek-to-percentage` (numbers 1 - 9)
+- `/youtube/restart` (0)
+- `/youtube/go-to-beginning` (home)
+- `/youtube/go-to-end` (end)
+
+[https://sites.google.com/a/umich.edu/going-google/accessibility/google-keyboard-shortcuts---youtube](https://sites.google.com/a/umich.edu/going-google/accessibility/google-keyboard-shortcuts---youtube)
+
+#### Spotify Remote (not implemented)
+
+- `/spotify/toggle-play-pause` (space)
+- `/spotify/next` (ctrl + right)
+- `/spotify/previous` (ctrl + left)
+- `/spotify/browse-forward` (alt + right)
+- `/spotify/browse-back` (alt + left)
+- `/spotify/focus-search` (ctrl + l)
+- `/spotify/search-artist` (focus -> 'artist:"query"')
+- `/spotify/search-album` (focus -> 'album:"query"')
+- `/spotify/search-track` (focus -> 'track:"query"')
+- `/spotify/search-playlist` (focus -> 'playlist:"query"')
+- `/spotify/search-genre` (focus -> 'genre:"query"')
+
+[http://mp3.about.com/od/tutorials/ht/Spotify-Tutorial-How-To-Use-Spotifys-Advanced-Search-Facilities-To-Find-Music.htm](http://mp3.about.com/od/tutorials/ht/Spotify-Tutorial-How-To-Use-Spotifys-Advanced-Search-Facilities-To-Find-Music.htm)
+
+[http://news.spotify.com/us/2008/01/22/searching-spotify/](http://news.spotify.com/us/2008/01/22/searching-spotify/)

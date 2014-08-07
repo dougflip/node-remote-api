@@ -1,0 +1,19 @@
+request  = require('supertest')
+
+recursePost = (index, routes, done) ->
+  if index >= routes.length
+    return done()
+
+  current = routes[index]
+  request('http://localhost:9000')
+    .post(current.route)
+    .send(current.data || {})
+    .expect(204)
+    .end (err, res) ->
+      if err
+        console.error 'Unable to verify', current.route, 'with data', current.data
+        return done(err)
+      recursePost index + 1, routes, done
+
+module.exports = 
+  recursePost: recursePost

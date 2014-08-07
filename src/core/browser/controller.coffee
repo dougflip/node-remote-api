@@ -1,40 +1,20 @@
+baseController = require('../base-controller-helper')
+
+noContentMethods = [
+  'focusAddressBar', 'close', 'closeTab', 'nextTab', 'zoomIn', 'zoomOut', 'actualSize'
+]
+
 class BrowserCtrl
-  constructor: (@browserCommands) ->
+  constructor: (@cmds) ->
 
   launch: (request, reply) ->
-    @browserCommands.launch(request.payload.url)
+    @cmds.launch(request.payload.url)
     reply().code(204)
 
   search: (request, reply) ->
-    @browserCommands.search(request.payload.searchTerm)
+    @cmds.search(request.payload.searchTerm)
     reply().code(204)
 
-  focusAddressBar: (request, reply) ->
-    @browserCommands.focusAddressBar()
-    reply().code(204)
-
-  close: (request, reply) ->
-    @browserCommands.close()
-    reply().code(204)
-
-  closeTab: (request, reply) ->
-    @browserCommands.closeTab()
-    reply().code(204)
-
-  nextTab: (request, reply) ->
-    @browserCommands.nextTab()
-    reply().code(204)
-
-  zoomIn: (request, reply) ->
-    @browserCommands.zoomIn()
-    reply().code(204)
-
-  zoomOut: (request, reply) ->
-    @browserCommands.zoomOut()
-    reply().code(204)
-
-  actualSize: (request, reply) ->
-    @browserCommands.actualSize()
-    reply().code(204)
+baseController.generateNoContentMethods(BrowserCtrl.prototype, noContentMethods)
 
 module.exports = BrowserCtrl

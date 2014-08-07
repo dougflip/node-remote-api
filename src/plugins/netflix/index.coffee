@@ -16,7 +16,7 @@ postHandlers =
 
 class NetflixRemote
   constructor: (server, coreApi) ->
-    ctrl = new NetflixCtrl(new NetflixCommands(coreApi))
+    ctrl = new NetflixCtrl(coreApi.baseController, new NetflixCommands(coreApi))
     @registerRoutes(server, ctrl)
 
   registerRoutes: (server, ctrl) ->

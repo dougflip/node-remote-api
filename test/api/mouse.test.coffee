@@ -1,4 +1,4 @@
-request  = require 'supertest';
+testHelper = require('./test-helpers')
 
 noContentRequests = [
   { route: '/mouse/click-at-polar-and-restore', data: { x: 0, y: 0 } }
@@ -10,19 +10,4 @@ noContentRequests = [
 
 describe 'Mouse Routes', ->
   it 'should should return a 204', (done) ->
-    recursePost 0, done
-
-recursePost = (index, done) ->
-  if index >= noContentRequests.length
-    return done()
-
-  current = noContentRequests[index]
-  request('http://localhost:9000')
-    .post(current.route)
-    .send(current.data || {})
-    .expect(204)
-    .end (err, res) ->
-      if err
-        console.error 'Unable to verify', current.route, 'with data', current.data
-        return done(err)
-      recursePost index + 1, done  
+    testHelper.recursePost(0, noContentRequests, done) 

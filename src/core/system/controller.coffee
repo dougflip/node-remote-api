@@ -1,20 +1,16 @@
+baseController = require('../base-controller-helper')
+
+noContentMethods = [
+  'closeWindow', 'mute', 'suspend'
+]
+
 class SystemCtrl
-  constructor: (@systemCommands) ->
-
-  closeWindow: (request, reply) ->
-    @systemCommands.closeWindow()
-    reply().code(204)
-
-  mute: (request, reply) ->
-    @systemCommands.mute()
-    reply().code(204)
+  constructor: (@cmds) ->
 
   setVolume: (request, reply) ->
-    @systemCommands.setVolume(request.payload.level)
+    @cmds.setVolume(request.payload.level)
     reply().code(204)
 
-  suspend: (request, reply) ->
-    @systemCommands.suspend()
-    reply().code(204)
+baseController.generateNoContentMethods(SystemCtrl.prototype, noContentMethods)
 
 module.exports = SystemCtrl
