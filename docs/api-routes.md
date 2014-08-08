@@ -63,7 +63,7 @@
 
 [https://sites.google.com/a/umich.edu/going-google/accessibility/google-keyboard-shortcuts---youtube](https://sites.google.com/a/umich.edu/going-google/accessibility/google-keyboard-shortcuts---youtube)
 
-#### Spotify Remote (not implemented)
+#### Spotify Remote (implemented, not tested)
 
 - `/spotify/toggle-play-pause` (space)
 - `/spotify/next` (ctrl + right)

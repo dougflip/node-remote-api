@@ -51,7 +51,7 @@ Most of these end up being xmacro (keyboard input) or xdotool (mouse input) comm
 - Browser controls
 - Mouse move and clicking controls
 - Keyboard input
-- See the [docs](docs/api-routes.md) for details
+- See the [docs](docs/api-routes.md) for all available routes.
 
 ## Branches
 
@@ -61,10 +61,9 @@ So I'll work against the `dev` branch and periodically verify and merge to `mast
 ## Running Tests
 
 There are API/integration tests using [supertest](https://github.com/visionmedia/supertest).
-The tests are in JS (not coffee) right now because I haven't looked into that workflow yet.
 To run the tests - 2 step process for now:
 
 1. `npm start` to bring up the server
 1. `npm run test:api` to execute the tests
 
-There are some areas where unit testing will probably make sense and that will most likely be mocha.
+I would like to wrap some unit tests around creating keyboard commands (I have some in the old project).

@@ -21,6 +21,7 @@ coreModules = [
 
 plugins = [
   require('./plugins/netflix')
+  require('./plugins/spotify')
   require('./plugins/youtube')
 ]
 
