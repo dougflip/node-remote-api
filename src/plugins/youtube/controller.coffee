@@ -1,6 +1,6 @@
 noContentMethods = [
   'launch', 'fullScreen', 'exitFullScreen', 'togglePlayPause', 'frameBackShort', 'frameBack',
-  'frameForwardShort', 'frameForward', 'seekToPercentage', 'restart', 'goToBeginning', 'goToEnd'
+  'frameForwardShort', 'frameForward', 'restart', 'goToBeginning', 'goToEnd'
 ]
 
 class YoutubeCtrl
@@ -9,6 +9,10 @@ class YoutubeCtrl
 
   search: (request, reply) ->
     @cmds.search(request.payload.query)
+    reply().code(204)
+
+  seekToPercentage: (request, reply) ->
+    @cmds.search(request.payload.step)
     reply().code(204)
 
 module.exports = YoutubeCtrl

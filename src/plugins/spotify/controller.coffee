@@ -1,5 +1,5 @@
 noContentMethods = [
-  'togglePlayPause', 'next', 'previous', 'browserForward', 'browseBack', 'focusSearch'
+  'togglePlayPause', 'next', 'previous', 'browseForward', 'browseBack', 'focusSearch'
 ]
 
 class SpotifyCtrl

@@ -5,7 +5,7 @@ postHandlers =
   '/spotify/toggle-play-pause': 'togglePlayPause'
   '/spotify/next': 'next'
   '/spotify/previous': 'previous'
-  '/spotify/browse-forward': 'browserForward'
+  '/spotify/browse-forward': 'browseForward'
   '/spotify/browse-back': 'browseBack'
   '/spotify/focus-search': 'focusSearch'
   '/spotify/search-artist': 'searchArtist'
