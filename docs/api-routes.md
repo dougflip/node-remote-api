@@ -23,6 +23,18 @@
 - `/system/set-volume`
 - `/system/suspend`
 
+Need to write
+
+- `/browser/go-back`
+- `/browser/go-forward`
+- `/browser/start-of-page`
+- `/browser/end-of-page`
+- `/browser/page-up`
+- `/browser/page-down`
+
+I want to send syntax like this to sendKeys: `alt+tab`  
+I was also thinking about a fluent builder interface for mouse: `Mouse.moveToPolar(0,0).leftClick().restore()`
+
 #### Future Core Routes?
 
 - '/system/open-application'
