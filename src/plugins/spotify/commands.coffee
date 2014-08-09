@@ -5,19 +5,19 @@ class SpotifyCmds
     @coreApi.keyboard.sendKeys('space')
 
   next: ->
-    @coreApi.keyboard.sendKeys('press:Control_L press:Right release:Right release:Control_L')
+    @coreApi.keyboard.sendKeys('ctrl+Right')
 
   previous: ->
-    @coreApi.keyboard.sendKeys('press:Control_L press:Left release:Left release:Control_L')
+    @coreApi.keyboard.sendKeys('ctrl+Left')
 
   browseForward: ->
-    @coreApi.keyboard.sendKeys('press:Alt_L press:Right release:Right release:Alt_L')
+    @coreApi.keyboard.sendKeys('alt+Right')
 
   browseBack: ->
-    @coreApi.keyboard.sendKeys('press:Alt_L press:Left release:Left release:Alt_L')
+    @coreApi.keyboard.sendKeys('alt+Left')
 
   focusSearch: ->
-    @coreApi.keyboard.sendKeys('press:Control_L press:l release:l release:Control_L')
+    @coreApi.keyboard.sendKeys('ctrl+l')
 
   searchArtist: (query) ->
     @focusSearch()

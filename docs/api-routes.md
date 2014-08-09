@@ -31,6 +31,10 @@ Need to write
 - `/browser/end-of-page`
 - `/browser/page-up`
 - `/browser/page-down`
+- `/browser/open-tab`
+- `/browser/navigate-to-url`
+- `/browser/maximize`
+- `/browser/minimize`
 
 I want to send syntax like this to sendKeys: `alt+tab`  
 I was also thinking about a fluent builder interface for mouse: `Mouse.moveToPolar(0,0).leftClick().restore()`

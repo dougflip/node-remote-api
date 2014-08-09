@@ -6,7 +6,6 @@ Basically splitting out just the server portion into an API.
 
 ## Getting Started
 
-- Install [xmacroplay](http://xmacro.sourceforge.net) (this may go away if xdotool can replace)
 - Install [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse)
 - Install latest of [Node](http://nodejs.org/)
 - `npm install -g coffee-script` install CoffeeScript globally
@@ -43,7 +42,7 @@ by referencing the server machine by ip - something like 192.168.x.x:9000.
 
 API requests come in over HTTP.  
 The Node server then issues commands directly to the host machine.  
-Most of these end up being xmacro (keyboard input) or xdotool (mouse input) commands.
+Most of these end up being xdotool commands.
 
 ## Features
 

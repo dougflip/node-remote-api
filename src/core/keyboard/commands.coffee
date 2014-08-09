@@ -1,28 +1,14 @@
 Commander = require '../commander'
-keystroke   = require './keystroke'
 
 class KeyCommands
   constructor: (@commander = new Commander) ->
 
+  # examples:  "alt+r", "Control_L+J", "ctrl+alt+n", "BackSpace"
+  # http://www.semicomplete.com/projects/xdotool/xdotool.xhtml
   sendKeys: (keys) ->
-    return null unless areKeysValid keys
-    
-    @commander.exec(
-      buildCommand(buildKeystrokes keys.split(' '))
-    )
+    @commander.exec("xdotool key #{keys}")
 
   sendText: (str) ->
-    return null unless str?
-    
-    @commander.exec(buildCommand(["String #{str}"]))
-
-  areKeysValid = (keys) ->
-    keys? && keys.length > 0
-
-  buildKeystrokes = (keys) ->
-    keys.map (x) -> keystroke.create x
-
-  buildCommand = (keys) ->
-    "printf \"#{keys.join("\\n")}\" | xmacroplay \"$DISPLAY\""
+    @commander.exec("xdotool type '#{str}'")
 
 module.exports = KeyCommands

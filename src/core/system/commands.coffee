@@ -5,7 +5,7 @@ class System
   constructor: (@commander = new Commander, @keyboardCommands = new KeyboardCommands) ->
 
   closeWindow: ->
-    @keyboardCommands.sendKeys('press:Alt_L press:F4 release:F4 release:Alt_L')
+    @keyboardCommands.sendKeys('alt+F4')
 
   mute: ->
     @commander.exec(buildVolumeCmd(0))

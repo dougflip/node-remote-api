@@ -28,15 +28,15 @@ class NetflixCommands
 
   rewind: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
-    @coreApi.keyboard.sendKeys('press:Shift_L press:Left release:Left release:Shift_L')
+    @coreApi.keyboard.sendKeys('shift+Left')
 
   fastForward: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
-    @coreApi.keyboard.sendKeys('press:Shift_L press:Right release:Right release:Shift_L')
+    @coreApi.keyboard.sendKeys('shift+Right')
 
   toggleKeyframeMode: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
-    @coreApi.keyboard.sendKeys('press:Control_L press:space release:space release:Control_L')
+    @coreApi.keyboard.sendKeys('ctrl+space')
 
   frameBack: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)

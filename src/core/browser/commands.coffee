@@ -11,24 +11,24 @@ class BrowserCommands
     @commander.exec "firefox -search \"#{searchTerm}\""
 
   focusAddressBar: ->
-    @keyboardCommands.sendKeys 'press:Control_L press:l release:l release:Control_L'
+    @keyboardCommands.sendKeys 'ctrl+l'
 
   close: ->
-    @keyboardCommands.sendKeys 'press:Alt_L press:F4 release:F4 release:Alt_L'
+    @keyboardCommands.sendKeys 'alt+F4'
   
   closeTab: ->
-    @keyboardCommands.sendKeys 'press:Control_L press:F4 release:Control_L release:F4'
+    @keyboardCommands.sendKeys 'ctrl+F4'
 
   nextTab: ->
-    @keyboardCommands.sendKeys 'press:Control_L press:Tab release:Control_L release:Tab'
+    @keyboardCommands.sendKeys 'ctrl+Tab'
 
   zoomIn: ->
-    @keyboardCommands.sendKeys 'press:Control_L press:equal release:Control_L release:equal'
+    @keyboardCommands.sendKeys 'ctrl+Equal'
 
   zoomOut: ->
-    @keyboardCommands.sendKeys 'press:Control_L press:minus release:Control_L release:minus'
+    @keyboardCommands.sendKeys 'ctrl+Minus'
 
   actualSize: ->
-    @keyboardCommands.sendKeys 'press:Control_L press:0 release:Control_L release:0'
+    @keyboardCommands.sendKeys 'ctrl+0'
 
 module.exports = BrowserCommands

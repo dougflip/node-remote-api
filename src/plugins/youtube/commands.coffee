@@ -8,9 +8,10 @@ class YoutubeCmds
     @coreApi.browser.launch("https://www.youtube.com/results?search_query=#{query}")
 
   fullScreen: ->
-    @coreApi.mouse.clickAtPolarAndRestore(0, 0)
     @coreApi.keyboard.sendKeys('f')
 
+  # TODO: I don't think the click is necessary for youtube
+  # actually, I think it is causing it to not work - need to test - focus might not even be an issue
   exitFullScreen: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
     @coreApi.keyboard.sendKeys('Escape')
@@ -21,19 +22,19 @@ class YoutubeCmds
 
   frameBackShort: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
-    @coreApi.keyboard.sendKeys('left')
+    @coreApi.keyboard.sendKeys('Left')
 
   frameBack: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
-    @coreApi.keyboard.sendKeys('press:Control_L press:Left release:Left release:Control_L')
+    @coreApi.keyboard.sendKeys('ctrl+Left')
 
   frameForwardShort: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
-    @coreApi.keyboard.sendKeys('right')
+    @coreApi.keyboard.sendKeys('Right')
 
   frameForward: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
-    @coreApi.keyboard.sendKeys('press:Control_L press:Right release:Right release:Control_L')
+    @coreApi.keyboard.sendKeys('ctrl+Right')
 
   seekToPercentage: (step) ->
     step = 1 if step < 1
