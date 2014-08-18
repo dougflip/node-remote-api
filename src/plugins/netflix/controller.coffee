@@ -1,5 +1,5 @@
 noContentMethods = [
-  'play', 'pause', 'fullScreen', 'exitFullScreen', 'rewind', 'fastForward',
+  'togglePlayPause', 'play', 'pause', 'fullScreen', 'exitFullScreen', 'rewind', 'fastForward',
   'toggleKeyframeMode', 'frameBack', 'frameForward'
 ]
 

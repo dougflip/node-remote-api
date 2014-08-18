@@ -4,6 +4,7 @@ NetflixCtrl = require('./controller')
 postHandlers = 
   '/netflix/search': 'search'
   '/netflix/launch-media-item': 'launchMediaItem'
+  '/netflix/toggle-play-pause': 'togglePlayPause'
   '/netflix/play': 'play'
   '/netflix/pause': 'pause'
   '/netflix/full-screen': 'fullScreen'

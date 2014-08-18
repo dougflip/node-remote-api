@@ -10,6 +10,10 @@ class NetflixCommands
   launchMediaItem: (mediaId) ->
     @coreApi.browser.launch(BASE_MEDIA_URL + mediaId)
 
+  togglePlayPause: ->
+    @coreApi.mouse.clickAtPolarAndRestore(0, 0)
+    @coreApi.keyboard.sendKeys('Space')
+
   play: ->
     @coreApi.mouse.clickAtPolarAndRestore(0, 0)
     @coreApi.keyboard.sendKeys('Prior') # page up

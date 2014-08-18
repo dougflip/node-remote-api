@@ -3,6 +3,7 @@ testHelper = require('./test-helpers')
 noContentRequests = [
   { route: '/netflix/search', data: { searchTerm: 'search' } }
   { route: '/netflix/launch-media-item', data: { mediaId: '1234567' } }
+  { route: '/netflix/toggle-play-pause' }
   { route: '/netflix/play' }
   { route: '/netflix/pause' }
   { route: '/netflix/full-screen' }
