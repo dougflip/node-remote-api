@@ -1,3 +1,4 @@
+MouseCmds = require('./commands')
 baseController = require('../base-controller-helper')
 
 noContentMethods = [
@@ -5,7 +6,7 @@ noContentMethods = [
 ]
 
 class MouseCtrl
-  constructor: (@cmds) ->
+  constructor: (@cmds = new MouseCmds) ->
 
   clickAtPolarAndRestore: (request, reply) ->
     @cmds.clickAtPolarAndRestore(request.payload.x, request.payload.y)

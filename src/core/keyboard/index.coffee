@@ -1,5 +1,5 @@
-KeyboardCmds = require('./commands')
 KeyboardCtrl = require('./controller')
+routeHelper = require('../route-helper')
 
 postHandlers = 
   '/keyboard/send-keys': 'sendKeys'
@@ -7,14 +7,7 @@ postHandlers =
 
 class KeyboardRemote
   constructor: (server) ->
-    ctrl = new KeyboardCtrl(new KeyboardCmds)
-    @registerRoutes(server, ctrl)
-
-  registerRoutes: (server, ctrl) ->
-    for key of postHandlers
-      server.route
-        method: 'POST'
-        path: key
-        handler: ctrl[postHandlers[key]].bind(ctrl)
+    ctrl = new KeyboardCtrl
+    routeHelper.registerRoutes(server, ctrl, postHandlers)
 
 module.exports = KeyboardRemote

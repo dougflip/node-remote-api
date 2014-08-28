@@ -19,13 +19,6 @@ postHandlers =
 class YoutubeRemote
   constructor: (server, coreApi) ->
     ctrl = new YoutubeCtrl(coreApi.baseController, new YoutubeCommands(coreApi))
-    @registerRoutes(server, ctrl)
-
-  registerRoutes: (server, ctrl) ->
-    for key of postHandlers
-      server.route
-        method: 'POST'
-        path: key
-        handler: ctrl[postHandlers[key]].bind(ctrl)
+    coreApi.routeHelper.registerRoutes(server, ctrl, postHandlers)
 
 module.exports = YoutubeRemote

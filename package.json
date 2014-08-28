@@ -5,7 +5,7 @@
   "main": "src/app.coffee",
   "scripts": {
     "start": "coffee src/app.coffee",
-    "test:api": "node_modules/.bin/mocha test/api"
+    "test": "node_modules/.bin/mocha test"
   },
   "author": "dougflip",
   "license": "MIT",

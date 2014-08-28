@@ -1,3 +1,4 @@
+SystemCmds = require('./commands')
 baseController = require('../base-controller-helper')
 
 noContentMethods = [
@@ -5,7 +6,7 @@ noContentMethods = [
 ]
 
 class SystemCtrl
-  constructor: (@cmds) ->
+  constructor: (@cmds = new SystemCmds) ->
 
   setVolume: (request, reply) ->
     @cmds.setVolume(request.payload.level)

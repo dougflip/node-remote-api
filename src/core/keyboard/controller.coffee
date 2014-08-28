@@ -1,5 +1,7 @@
+KeyboardCmds = require('./commands')
+
 class KeyboardCtrl
-  constructor: (@keyboardCommands) ->
+  constructor: (@keyboardCommands = new KeyboardCmds) ->
 
   sendKeys: (request, reply) ->
     @keyboardCommands.sendKeys(request.payload.keys)

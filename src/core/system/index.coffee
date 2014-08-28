@@ -1,5 +1,5 @@
-SystemCmds = require('./commands')
 SystemCtrl = require('./controller')
+routeHelper = require('../route-helper')
 
 postHandlers = 
   '/system/close-window': 'closeWindow'
@@ -9,14 +9,7 @@ postHandlers =
 
 class SystemRemote
   constructor: (server, coreApi) ->
-    ctrl = new SystemCtrl(new SystemCmds)
-    @registerRoutes(server, ctrl)
-
-  registerRoutes: (server, ctrl) ->
-    for key of postHandlers
-      server.route
-        method: 'POST'
-        path: key
-        handler: ctrl[postHandlers[key]].bind(ctrl)
+    ctrl = new SystemCtrl
+    routeHelper.registerRoutes(server, ctrl, postHandlers)
 
 module.exports = SystemRemote

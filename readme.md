@@ -9,7 +9,6 @@ Basically splitting out just the server portion into an API.
 - Install [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse)
 - Install latest of [Node](http://nodejs.org/)
 - `npm install -g coffee-script` install CoffeeScript globally
-- `npm install -g bower` install bower globally
 
 ## Running the Server
 Install dependencies
@@ -63,6 +62,4 @@ There are API/integration tests using [supertest](https://github.com/visionmedia
 To run the tests - 2 step process for now:
 
 1. `npm start` to bring up the server
-1. `npm run test:api` to execute the tests
-
-I would like to wrap some unit tests around creating keyboard commands (I have some in the old project).
+1. `npm test` to execute the tests

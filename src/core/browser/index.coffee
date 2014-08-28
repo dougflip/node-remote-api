@@ -1,5 +1,5 @@
-BrowserCmds = require('./commands')
 BrowserCtrl = require('./controller')
+routeHelper = require('../route-helper')
 
 postHandlers = 
   '/browser/launch': 'launch'
@@ -14,14 +14,7 @@ postHandlers =
 
 class BrowserRemote
   constructor: (server) ->
-    ctrl = new BrowserCtrl(new BrowserCmds)
-    @registerRoutes(server, ctrl)
-
-  registerRoutes: (server, ctrl) ->
-    for key of postHandlers
-      server.route
-        method: 'POST'
-        path: key
-        handler: ctrl[postHandlers[key]].bind(ctrl)
+    ctrl = new BrowserCtrl
+    routeHelper.registerRoutes(server, ctrl, postHandlers)
 
 module.exports = BrowserRemote

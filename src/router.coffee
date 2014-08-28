@@ -11,6 +11,7 @@ coreApi =
   mouse: new MouseCmds()
   system: new SystemCmds()
   baseController: require('./core/base-controller-helper')
+  routeHelper: require('./core/route-helper')
 
 coreModules = [
   require('./core/browser'),

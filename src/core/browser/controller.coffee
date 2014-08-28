@@ -1,11 +1,12 @@
 baseController = require('../base-controller-helper')
+BrowserCmds = require('./commands')
 
 noContentMethods = [
   'focusAddressBar', 'close', 'closeTab', 'nextTab', 'zoomIn', 'zoomOut', 'actualSize'
 ]
 
 class BrowserCtrl
-  constructor: (@cmds) ->
+  constructor: (@cmds = new BrowserCmds) ->
 
   launch: (request, reply) ->
     @cmds.launch(request.payload.url)
