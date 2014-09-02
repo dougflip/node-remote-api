@@ -1,13 +1,11 @@
 node-remote
 ===========
 
-This is a rewrite of [https://github.com/dougflip/node-remote](https://github.com/dougflip/node-remote).
-Basically splitting out just the server portion into an API.
+ A set of core automation scripts exposed over REST. This is the API for [https://github.com/dougflip/node-remote](https://github.com/dougflip/node-remote). Currently this is only targeted at Linux, but there are future plans to run cross platform.
 
-## Getting Started
+## Prereqs/Setup
 
-- Install [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse)
-- Install latest of [Node](http://nodejs.org/)
+- `sudo apt-get install xdotool` Installs [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) which allows for easier mouse/keyboard scripting
 - `npm install -g coffee-script` install CoffeeScript globally
 
 ## Running the Server
@@ -17,10 +15,10 @@ Install dependencies
 npm install
 ```
 
-For regular debugging you can just fire up the app with coffee:
+For regular debugging:
 
 ```
-coffee src/app.coffee
+npm start
 ```
 
 When I am actually running it on my media machine I use [forever](https://github.com/nodejitsu/forever):
@@ -30,23 +28,20 @@ npm install -g forever
 forever start -c coffee src/app.coffee
 ```
 
-Either way [localhost:9000](http://localhost:9000) should be up and running at this point.
+Either way [localhost:9001](http://localhost:9001) should be up and running at this point.
 Check out the [docs](docs/api-routes.md) to see what is now available.
 
 ## Basic Overview
 
-The above starts up a web server listening on 9000.  
-You should be able to request the API over your local network
-by referencing the server machine by ip - something like 192.168.x.x:9000.
+The above starts up a web server listening on 9001. You should be able to request the API over your local network
+by referencing the server machine by ip - something like 192.168.x.x:9001. All of the routes at this point are `POST` requests so you cannot simply navigate to them in a browser. I use [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) to interact with the API without running the client.
 
-API requests come in over HTTP.  
-The Node server then issues commands directly to the host machine.  
-Most of these end up being xdotool commands.
+API requests come in over HTTP. The Node server then issues commands directly to the host machine. Most of these end up being xdotool commands to either simulate keyboard input or mouse input.
 
 ## Features
 
 - System control such as volume and closing windows
-- Browser controls
+- Browser controls such as tab switching and zoom
 - Mouse move and clicking controls
 - Keyboard input
 - See the [docs](docs/api-routes.md) for all available routes.

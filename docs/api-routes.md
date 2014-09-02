@@ -1,6 +1,8 @@
-## API Routes
+# API Routes
 
-#### Core Remote
+## Core
+
+#### Browser Remote
 
 - `/browser/launch` (launch may just handle "search" based on the input)
 - `/browser/search` (https://developer.mozilla.org/en-US/docs/Mozilla/Command_Line_Options: -search "term")
@@ -11,19 +13,8 @@
 - `/browser/zoom-in`
 - `/browser/zoom-out`
 - `/browser/actual-size`
-- `/keyboard/send-keys`
-- `/keyboard/send-text`
-- `/mouse/click-at-polar-and-restore`
-- `/mouse/move-relative`
-- `/mouse/left-click`
-- `/mouse/right-click`
-- `/mouse/double-click`
-- `/system/close-window`
-- `/system/mute`
-- `/system/set-volume`
-- `/system/suspend`
 
-Need to write
+// TODO:
 
 - `/browser/go-back`
 - `/browser/go-forward`
@@ -36,14 +27,34 @@ Need to write
 - `/browser/maximize`
 - `/browser/minimize`
 
-I want to send syntax like this to sendKeys: `alt+tab`  
-I was also thinking about a fluent builder interface for mouse: `Mouse.moveToPolar(0,0).leftClick().restore()`
+#### Keyboard Remote
+
+- `/keyboard/send-keys`
+- `/keyboard/send-text`
+
+#### Mouse Remote
+- `/mouse/click-at-polar-and-restore`
+- `/mouse/move-relative`
+- `/mouse/left-click`
+- `/mouse/right-click`
+- `/mouse/double-click`
+
+#### System Remote
+
+- `/system/close-window`
+- `/system/mute`
+- `/system/set-volume`
+- `/system/suspend`
+
+Where does the 'super' key fit in? Seems like this could be a useful key for at least Ubunut and Windows.
 
 #### Future Core Routes?
 
 - '/system/open-application'
 - '/system/list-windows' (may not be supported by xdotool)
 - '/system/switch-window' (alt+tab)
+
+## Plugins
 
 #### Netflix Remote
 
