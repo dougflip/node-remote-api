@@ -1,3 +1,4 @@
+pluginLoader = require('./plugin-loader')
 Commander = require('./core/commander')
 BrowserCmds = require('./core/browser/commands')
 KeyboardCmds = require('./core/keyboard/commands')
@@ -20,18 +21,13 @@ coreModules = [
   require('./core/system')
 ]
 
-plugins = [
-  require('./plugins/netflix')
-  require('./plugins/spotify')
-  require('./plugins/youtube')
-]
-
 class Router
   configure: (server) ->
     coreModules.forEach (Module) ->
       new Module(server)
 
-    plugins.forEach (Module) ->
+    pluginLoader.getPlugins().forEach (moduleName) ->
+      Module = require(moduleName)
       new Module(server, coreApi)
 
 module.exports = new Router
