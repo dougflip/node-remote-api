@@ -1,7 +1,7 @@
 node-remote
 ===========
 
- A set of core automation scripts exposed over REST. This is the API for [https://github.com/dougflip/node-remote](https://github.com/dougflip/node-remote). Currently this is only targeted at Linux, but there are future plans to run [cross platform](docs/cross-platform.md).
+A set of core automation scripts exposed over REST. This is the API for [https://github.com/dougflip/node-remote](https://github.com/dougflip/node-remote). Currently this is only targeted at Linux, but there are future plans to run [cross platform](docs/cross-platform.md).
 
 ## Prereqs/Setup
 
@@ -25,17 +25,6 @@ npm start
 
 [localhost:9001](http://localhost:9001) should be up and running at this point.
 Check out the [docs](docs/api-routes.md) to see what is now available.
-
-## Using Forever
-
-if you want to keep the server running in the background you can use [forever](https://github.com/nodejitsu/forever):
-
-```
-npm run forever
-```
-
-** I've been working on my windows machine lately and forever doesn't seem to be working.
-Not sure if this is a windows issue or something is actually broken...
 
 ## Basic Overview
 

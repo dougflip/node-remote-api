@@ -4,17 +4,16 @@
   "description": "REST server for Node Remote",
   "main": "src/app.coffee",
   "scripts": {
-    "start": "coffee src/app.coffee",
-    "test": "node_modules/.bin/mocha test",
-    "forever": "forever start -c coffee src/app.coffee"
+    "start": "babel-node src/app",
+    "test": "mocha --compilers js:babel/register test/**/*.test.js"
   },
   "author": "dougflip",
   "license": "MIT",
   "dependencies": {
-    "hapi": "~6.2.1",
+    "babel": "^4.7.12",
+    "forever": "~0.13.0",
     "fs-extra": "~0.12.0",
-    "coffee-script": "~1.8.0",
-    "forever": "~0.13.0"
+    "hapi": "~6.2.1"
   },
   "devDependencies": {
     "supertest": "~0.13.0",
