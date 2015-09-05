@@ -13,7 +13,8 @@
     "babel": "^4.7.12",
     "forever": "~0.13.0",
     "fs-extra": "~0.12.0",
-    "hapi": "~6.2.1"
+    "hapi": "~6.2.1",
+    "ws": "^0.8.0"
   },
   "devDependencies": {
     "supertest": "~0.13.0",

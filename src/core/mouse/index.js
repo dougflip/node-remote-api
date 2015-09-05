@@ -10,9 +10,10 @@ var postHandlers = {
 }
 
 class MouseRemote {
-  constructor (server, coreApi){
+  constructor (server, coreApi, wss){
     this.coreApi = coreApi;
     routeHelper.registerRoutes(server, new MouseCtrl(), postHandlers)
+
   }
 }
 
