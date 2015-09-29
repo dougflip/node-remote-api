@@ -31,7 +31,7 @@ class System {
       level = 100;
     }
 
-    return `pactl set-sink-volume 0 -- ${level}%`;
+    return `amixer -D pulse sset Master ${level}%`;
   }
 }
 
