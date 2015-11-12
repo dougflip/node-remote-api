@@ -1,5 +1,5 @@
-var browserCtrl = require('./controller');
-var routeHelper = require('../route-helper');
+var ctrl = require('./controller');
+var router = require('../route-helper');
 
 var postHandlers = {
   '/browser/launch': 'launch',
@@ -13,10 +13,4 @@ var postHandlers = {
   '/browser/actual-size': 'actualSize'
 }
 
-class BrowserRemote {
-  constructor (server) {
-    routeHelper.registerRoutes(server, browserCtrl(), postHandlers)
-  }
-}
-
-module.exports = BrowserRemote
+module.exports = server => router.registerRoutes(server, ctrl(), postHandlers);
