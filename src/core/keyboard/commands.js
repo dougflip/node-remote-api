@@ -1,7 +1,7 @@
-var Commander = require('../commander');
+var defaultCommander = require('../commander');
 
 class KeyCommands {
-  constructor (commander = new Commander()) {
+  constructor (commander = defaultCommander) {
     this.commander = commander;
   }
 

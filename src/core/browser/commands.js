@@ -1,8 +1,8 @@
-var Commander = require('../commander');
+var defaultCommander = require('../commander');
 var KeyboardCommands = require('../keyboard/commands');
 
 class BrowserCommands {
-  constructor (commander = new Commander(), keyboardCommands = new KeyboardCommands()) {
+  constructor (commander = defaultCommander, keyboardCommands = new KeyboardCommands()) {
     this.commander = commander;
     this.keyboardCommands = keyboardCommands;
   }
@@ -22,7 +22,7 @@ class BrowserCommands {
   close() {
     return this.keyboardCommands.sendKeys('alt+F4');
   }
-  
+
   closeTab() {
     return this.keyboardCommands.sendKeys('ctrl+F4');
   }

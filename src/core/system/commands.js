@@ -1,8 +1,8 @@
-var Commander = require('../commander');
+var defaultCommander = require('../commander');
 var KeyboardCommands = require('../keyboard/commands');
 
 class System {
-  constructor(commander = new Commander(), keyboardCommands = new KeyboardCommands()){
+  constructor(commander = defaultCommander, keyboardCommands = new KeyboardCommands()){
     this.commander = commander;
     this.keyboardCommands = keyboardCommands;
   }

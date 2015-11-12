@@ -1,10 +1,10 @@
-var Commander = require('../commander');
+var defaultCommander = require('../commander');
 
 class MouseCommands {
-  constructor (commander = new Commander()) {
+  constructor (commander = defaultCommander) {
     this.commander = commander;
   }
-  
+
   clickAtPolarAndRestore (x, y) {
     return this.commander.exec("xdotool mousemove --polar 0 0 click 1 mousemove restore");
   }
