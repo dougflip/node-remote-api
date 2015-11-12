@@ -1,4 +1,4 @@
-var BrowserCtrl = require('./controller');
+var browserCtrl = require('./controller');
 var routeHelper = require('../route-helper');
 
 var postHandlers = {
@@ -15,7 +15,7 @@ var postHandlers = {
 
 class BrowserRemote {
   constructor (server) {
-    routeHelper.registerRoutes(server, new BrowserCtrl(), postHandlers)
+    routeHelper.registerRoutes(server, browserCtrl(), postHandlers)
   }
 }
 

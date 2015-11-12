@@ -1,3 +1,5 @@
+var R = require('ramda');
+
 function generateNoContentMethods(context, config){
   config.forEach((key) => {
     context[key] = function(request, reply){
@@ -7,6 +9,12 @@ function generateNoContentMethods(context, config){
   });
 }
 
+const passthrough = R.curry((cmdFn, req, reply) => {
+    cmdFn();
+    return reply().code(204);
+});
+
 module.exports = {
-  generateNoContentMethods
+  generateNoContentMethods,
+  passthrough
 }
