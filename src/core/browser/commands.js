@@ -1,47 +1,19 @@
-var defaultCommander = require('../commander');
-var KeyboardCommands = require('../keyboard/commands');
+const defaultCommander = require('../commander');
+const KeyboardCommands = require('../keyboard/commands');
+const R = require('ramda');
 
-class BrowserCommands {
-  constructor (commander = defaultCommander, keyboardCommands = new KeyboardCommands()) {
-    this.commander = commander;
-    this.keyboardCommands = keyboardCommands;
-  }
-
-  launch (url) {
-    return this.commander.exec `firefox ${url}`;
-  }
-
-  search (searchTerm) {
-    return this.commander.exec `firefox -search "${searchTerm}"`;
-  }
-
-  focusAddressBar() {
-    return this.keyboardCommands.sendKeys('ctrl+l');
-  }
-
-  close() {
-    return this.keyboardCommands.sendKeys('alt+F4');
-  }
-
-  closeTab() {
-    return this.keyboardCommands.sendKeys('ctrl+F4');
-  }
-
-  nextTab() {
-    return this.keyboardCommands.sendKeys('ctrl+Tab');
-  }
-
-  zoomIn() {
-    return this.keyboardCommands.sendKeys('ctrl+Equal');
-  }
-
-  zoomOut() {
-    return this.keyboardCommands.sendKeys('ctrl+Minus');
-  }
-
-  actualSize() {
-    return this.keyboardCommands.sendKeys('ctrl+0');
-  }
+const browserCommands = function(commander = defaultCommander, keyboardCommands = new KeyboardCommands()) {
+    return {
+        launch: url => commander.exec(`firefox ${url}`),
+        search: term => commander.exec(`firefox -search "${term}"`),
+        focusAddressBar: R.partial(commander.exec, ['ctrl+l']),
+        close: R.partial(commander.exec, ['alt+F4']),
+        closeTab: R.partial(commander.exec, ['ctrl+F4']),
+        nextTab: R.partial(commander.exec, ['ctrl+Tab']),
+        zoomIn: R.partial(commander.exec, ['ctrl+Equal']),
+        zoomOut: R.partial(commander.exec, ['ctrl+Minus']),
+        actualSize: R.partial(commander.exec, ['ctrl+0'])
+    }
 }
 
-module.exports = BrowserCommands
+module.exports = browserCommands
