@@ -5,6 +5,7 @@
   "main": "src/app.coffee",
   "scripts": {
     "start": "babel-node src/app",
+    "test:serve": "NRA_TEST_MODE=true npm start",
     "test": "mocha --compilers js:babel/register test/**/*.test.js"
   },
   "author": "dougflip",

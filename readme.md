@@ -58,5 +58,5 @@ Work will be done against feature branches and integrated into the `dev` branch 
 There are API/integration tests using [supertest](https://github.com/visionmedia/supertest).
 To run the tests - 2 step process for now:
 
-1. `npm start` (in console 1) to bring up the server
+1. `npm run test:serve` (in console 1) to bring up the server in test mode
 1. `npm test` (in console 2) to execute the tests
