@@ -3,11 +3,11 @@ var browserCmds = require('./commands');
 
 const browserCtrl = (cmds = browserCmds()) => {
     return {
-        launch: (req, reply) => {
+        launch(req, reply) {
             cmds.launch(req.payload.url);
             return reply().code(204);
         },
-        search: (req, reply) => {
+        search(req, reply) {
             cmds.search(req.payload.searchTerm);
             return reply().code(204);
         },

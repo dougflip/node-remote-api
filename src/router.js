@@ -1,14 +1,14 @@
 var pluginLoader = require('./plugin-loader');
 var commander = require('./core/commander');
 var browserCmds = require('./core/browser/commands');
-var KeyboardCmds = require('./core/keyboard/commands');
+var keyboardCmds = require('./core/keyboard/commands');
 var MouseCmds = require('./core/mouse/commands');
 var SystemCmds = require('./core/system/commands');
 
 var coreApi = {
   commander: commander,
   browser: browserCmds(),
-  keyboard: new KeyboardCmds(),
+  keyboard: keyboardCmds(),
   mouse: new MouseCmds(),
   system: new SystemCmds(),
   baseController: require('./core/base-controller-helper'),

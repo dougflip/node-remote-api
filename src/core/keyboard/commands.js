@@ -1,19 +1,11 @@
-var defaultCommander = require('../commander');
+const defaultCommander = require('../commander');
+const R = require('ramda');
 
-class KeyCommands {
-  constructor (commander = defaultCommander) {
-    this.commander = commander;
+const keyCommands = (commander = defaultCommander) => {
+  return {
+    sendKeys: keys => commander.exec(`xdotool key ${keys}`),
+    sendText: str => commander.exec(`xdotool type '${str}'`)
   }
+};
 
-  // examples:  "alt+r", "Control_L+J", "ctrl+alt+n", "BackSpace"
-  // http://www.semicomplete.com/projects/xdotool/xdotool.xhtml
-  sendKeys (keys) {
-    return this.commander.exec(`xdotool key ${keys}`);
-  }
-
-  sendText (str) {
-    return this.commander.exec(`xdotool type '${str}'`);
-  }
-}
-
-module.exports = KeyCommands;
+module.exports = keyCommands;

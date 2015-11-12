@@ -1,14 +1,14 @@
 var defaultCommander = require('../commander');
-var KeyboardCommands = require('../keyboard/commands');
+var keyboardCommands = require('../keyboard/commands');
 
 class System {
-  constructor(commander = defaultCommander, keyboardCommands = new KeyboardCommands()){
+  constructor(commander = defaultCommander, keyboard = keyboardCommands()){
     this.commander = commander;
-    this.keyboardCommands = keyboardCommands;
+    this.keyboard = keyboard;
   }
 
   closeWindow(){
-    this.keyboardCommands.sendKeys('alt+F4');
+    this.keyboard.sendKeys('alt+F4');
   }
 
   mute(){
