@@ -1,26 +1,18 @@
-var MouseCmds = require('./commands');
-var baseController = require('../base-controller-helper');
+var mouseCmds = require('./commands');
+var ctrl = require('../base-controller-helper');
 
-var noContentMethods = [
-  'leftClick', 'rightClick', 'doubleClick'
-];
-
-class MouseCtrl {
-  constructor (cmds = new MouseCmds()) {
-    this.cmds = cmds;
+module.exports = (cmds = mouseCmds()) => {
+  return {
+    clickAtPolarAndRestore (req, reply) {
+      cmds.clickAtPolarAndRestore(req.payload.x, req.payload.y);
+      return reply().code(204);
+    },
+    moveRelative (req, reply) {
+      cmds.moveRelative(req.payload.x, req.payload.y);
+      return reply().code(204);
+    },
+    leftClick: ctrl.passthrough(cmds.leftClick),
+    rightClick: ctrl.passthrough(cmds.rightClick),
+    doubleClick: ctrl.passthrough(cmds.doubleClick)
   }
-
-  clickAtPolarAndRestore (request, reply) {
-    this.cmds.clickAtPolarAndRestore(request.payload.x, request.payload.y);
-    return reply().code(204);
-  }
-
-  moveRelative (request, reply) {
-    this.cmds.moveRelative(request.payload.x, request.payload.y);
-    return reply().code(204);
-  }
-}
-
-baseController.generateNoContentMethods(MouseCtrl.prototype, noContentMethods)
-
-module.exports = MouseCtrl
+};

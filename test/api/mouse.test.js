@@ -1,7 +1,7 @@
 var testHelper = require('./test-helpers');
 
 var noContentRequests = [
-  { route: '/mouse/click-at-polar-and-restore', data: { x: 0, y: 0 } },
+  { route: '/mouse/click-at-polar-and-restore', data: { x: 0, y: 20 } },
   { route: '/mouse/move-relative', data: { x: 5, y: 5 } },
   { route: '/mouse/left-click' },
   { route: '/mouse/right-click' },

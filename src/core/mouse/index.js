@@ -1,5 +1,5 @@
-var MouseCtrl = require('./controller');
-var routeHelper = require('../route-helper');
+var ctrl = require('./controller');
+var router = require('../route-helper');
 
 var postHandlers = {
   '/mouse/click-at-polar-and-restore': 'clickAtPolarAndRestore',
@@ -9,11 +9,4 @@ var postHandlers = {
   '/mouse/double-click': 'doubleClick'
 }
 
-class MouseRemote {
-  constructor (server, coreApi){
-    this.coreApi = coreApi;
-    routeHelper.registerRoutes(server, new MouseCtrl(), postHandlers)
-  }
-}
-
-module.exports = MouseRemote
+module.exports = server => router.registerRoutes(server, ctrl(), postHandlers);
