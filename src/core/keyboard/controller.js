@@ -1,6 +1,6 @@
 var keyboardCmds = require('./commands');
 
-const keyboardCtrl = (cmds = keyboardCmds()) => {
+module.exports = (cmds = keyboardCmds()) => {
   return {
     // examples:  "alt+r", "Control_L+J", "ctrl+alt+n", "BackSpace"
     // http://www.semicomplete.com/projects/xdotool/xdotool.xhtml
@@ -14,5 +14,3 @@ const keyboardCtrl = (cmds = keyboardCmds()) => {
     }
   };
 };
-
-module.exports = keyboardCtrl;
