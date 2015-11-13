@@ -1,7 +1,7 @@
 var ctrl = require('../base-controller-helper');
 var browserCmds = require('./commands');
 
-const browserCtrl = (cmds = browserCmds()) => {
+module.exports = (cmds = browserCmds()) => {
     return {
         launch(req, reply) {
             cmds.launch(req.payload.url);
@@ -20,5 +20,3 @@ const browserCtrl = (cmds = browserCmds()) => {
         actualSize: ctrl.passthrough(cmds.actualSize)
     };
 };
-
-module.exports = browserCtrl;

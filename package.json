@@ -6,6 +6,7 @@
   "scripts": {
     "start": "babel-node src/app",
     "test:serve": "NRA_TEST_MODE=true npm start",
+    "test:serve:watch": "nodemon --exec \"NRA_TEST_MODE=true babel-node\" src/app.js",
     "test": "mocha --compilers js:babel/register test/**/*.test.js"
   },
   "author": "dougflip",
@@ -18,7 +19,8 @@
     "ramda": "^0.18.0"
   },
   "devDependencies": {
-    "supertest": "~0.13.0",
-    "mocha": "~1.21.3"
+    "mocha": "~1.21.3",
+    "nodemon": "^1.8.1",
+    "supertest": "~0.13.0"
   }
 }
