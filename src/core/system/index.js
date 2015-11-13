@@ -1,5 +1,5 @@
-var SystemCtrl = require('./controller');
-var routeHelper = require('../route-helper');
+var ctrl = require('./controller');
+var router = require('../route-helper');
 
 var postHandlers = {
   '/system/close-window': 'closeWindow',
@@ -8,11 +8,4 @@ var postHandlers = {
   '/system/suspend': 'suspend'
 }
 
-class SystemRemote {
-  constructor(server, coreApi){
-    routeHelper.registerRoutes(server, new SystemCtrl(), postHandlers)
-  }
-}
-
-
-module.exports = SystemRemote
+module.exports = server => router.registerRoutes(server, ctrl(), postHandlers);

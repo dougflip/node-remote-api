@@ -1,35 +1,35 @@
-var pluginLoader = require('./plugin-loader');
-var commander = require('./core/commander');
-var browserCmds = require('./core/browser/commands');
-var keyboardCmds = require('./core/keyboard/commands');
-var mouseCmds = require('./core/mouse/commands');
-var SystemCmds = require('./core/system/commands');
+const pluginLoader = require('./plugin-loader');
 
-var coreApi = {
+const browserMod = require('./core/browser');
+const keyboardMod = require('./core/keyboard');
+const mouseMod = require('./core/mouse');
+const systemMod = require('./core/system');
+
+const commander = require('./core/commander');
+const browserCmds = require('./core/browser/commands');
+const keyboardCmds = require('./core/keyboard/commands');
+const mouseCmds = require('./core/mouse/commands');
+const systemCmds = require('./core/system/commands');
+
+const coreApi = {
   commander: commander,
   browser: browserCmds(),
   keyboard: keyboardCmds(),
   mouse: mouseCmds(),
-  system: new SystemCmds(),
+  system: systemCmds(),
   baseController: require('./core/base-controller-helper'),
   routeHelper: require('./core/route-helper')
-}
-
-var coreModules = [
-  require('./core/browser'),
-  require('./core/keyboard'),
-  require('./core/mouse'),
-  require('./core/system')
-]
+};
 
 class Router {
   configure(server) {
-    coreModules.forEach((Module) => {
-      new Module(server);
-    });
+    browserMod(server);
+    keyboardMod(server);
+    mouseMod(server);
+    systemMod(server);
 
     pluginLoader.getPlugins().forEach((moduleName) => {
-      var Module = require(moduleName)
+      const Module = require(moduleName)
       new Module(server, coreApi);
     });
   }

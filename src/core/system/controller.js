@@ -1,21 +1,14 @@
-var SystemCmds = require('./commands');
-var baseController = require('../base-controller-helper');
+var systemCmds = require('./commands');
+var ctrl = require('../base-controller-helper');
 
-var noContentMethods = [
-  'closeWindow', 'mute', 'suspend'
-]
-
-class SystemCtrl {
-  constructor(cmds = new SystemCmds){
-    this.cmds = cmds;
+module.exports = (cmds = systemCmds()) => {
+  return {
+    setVolume (req, reply) {
+      cmds.setVolume(req.payload.level);
+      return reply().code(204);
+    },
+    closeWindow: ctrl.passthrough(cmds.closeWindow),
+    mute: ctrl.passthrough(cmds.mute),
+    suspend: ctrl.passthrough(cmds.suspend)
   }
-
-  setVolume(request, reply){
-    this.cmds.setVolume(request.payload.level);
-    return reply().code(204);
-  }
-}
-
-baseController.generateNoContentMethods(SystemCtrl.prototype, noContentMethods)
-
-module.exports = SystemCtrl
+};

@@ -3,7 +3,9 @@ var testHelper = require('./test-helpers');
 var noContentRequests = [
   { route: '/system/close-window' },
   { route: '/system/mute' },
+  { route: '/system/set-volume', data:{ level: -10 } },
   { route: '/system/set-volume', data:{ level: 85 } },
+  { route: '/system/set-volume', data:{ level: 185 } },
   { route: '/system/suspend' }
 ];
 
