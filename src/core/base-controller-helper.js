@@ -1,5 +1,7 @@
 var R = require('ramda');
 
+// Deprecated
+// Existing plugins stil use this, but should migrate to `passthrough`
 function generateNoContentMethods(context, config){
   config.forEach((key) => {
     context[key] = function(request, reply){
