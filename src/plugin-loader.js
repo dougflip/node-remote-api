@@ -22,10 +22,8 @@ const getPlugins = () => {
 
 const configure = (coreApi) => {
   getPlugins().forEach((remoteName) => {
-    const Remote = require(remoteName)
-
-    // TODO: Need to rewrite plugins to to not use "new"
-    new Remote(server, coreApi);
+    const remote = require(remoteName)
+    remote.configure(coreApi);
   });
 };
 
