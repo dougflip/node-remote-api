@@ -1,11 +1,10 @@
-var ctrl = require('./controller');
-var router = require('../route-helper');
+var ctrl = require('./controller')();
 
 var postHandlers = {
-  '/system/close-window': 'closeWindow',
-  '/system/mute': 'mute',
-  '/system/set-volume': 'setVolume',
-  '/system/suspend': 'suspend'
+  '/system/close-window': ctrl.closeWindow,
+  '/system/mute': ctrl.mute,
+  '/system/set-volume': ctrl.setVolume,
+  '/system/suspend': ctrl.suspend
 }
 
-module.exports = server => router.registerRoutes(server, ctrl(), postHandlers);
+module.exports = addRoutes => addRoutes(postHandlers);

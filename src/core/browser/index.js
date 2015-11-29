@@ -1,16 +1,15 @@
-var ctrl = require('./controller');
-var router = require('../route-helper');
+var ctrl = require('./controller')();
 
 var postHandlers = {
-  '/browser/launch': 'launch',
-  '/browser/search': 'search',
-  '/browser/focus-address-bar': 'focusAddressBar',
-  '/browser/close': 'close',
-  '/browser/close-tab': 'closeTab',
-  '/browser/next-tab': 'nextTab',
-  '/browser/zoom-in': 'zoomIn',
-  '/browser/zoom-out': 'zoomOut',
-  '/browser/actual-size': 'actualSize'
+  '/browser/launch': ctrl.launch,
+  '/browser/search': ctrl.search,
+  '/browser/focus-address-bar': ctrl.focusAddressBar,
+  '/browser/close': ctrl.close,
+  '/browser/close-tab': ctrl.closeTab,
+  '/browser/next-tab': ctrl.nextTab,
+  '/browser/zoom-in': ctrl.zoomIn,
+  '/browser/zoom-out': ctrl.zoomOut,
+  '/browser/actual-size': ctrl.actualSize
 }
 
-module.exports = server => router.registerRoutes(server, ctrl(), postHandlers);
+module.exports = addRoutes => addRoutes(postHandlers);

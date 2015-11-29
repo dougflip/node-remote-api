@@ -1,12 +1,11 @@
-var ctrl = require('./controller');
-var router = require('../route-helper');
+var ctrl = require('./controller')();
 
 var postHandlers = {
-  '/mouse/click-at-polar-and-restore': 'clickAtPolarAndRestore',
-  '/mouse/move-relative': 'moveRelative',
-  '/mouse/left-click': 'leftClick',
-  '/mouse/right-click': 'rightClick',
-  '/mouse/double-click': 'doubleClick'
+  '/mouse/click-at-polar-and-restore': ctrl.clickAtPolarAndRestore,
+  '/mouse/move-relative': ctrl.moveRelative,
+  '/mouse/left-click': ctrl.leftClick,
+  '/mouse/right-click': ctrl.rightClick,
+  '/mouse/double-click': ctrl.doubleClick
 }
 
-module.exports = server => router.registerRoutes(server, ctrl(), postHandlers);
+module.exports = addRoutes => addRoutes(postHandlers);

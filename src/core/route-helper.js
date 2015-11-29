@@ -1,13 +1,12 @@
-function registerRoutes(server, ctrl, postHandlers){
-  for(let key in postHandlers) {
-    server.route({
-      method: 'POST',
-      path: key,
-      handler: ctrl[postHandlers[key]].bind(ctrl)
-    });
-  }
-}
+const R = require('ramda');
 
-module.exports = {
-  registerRoutes
+const addRoute = (server, path, handler) => {
+  server.route({ method: 'POST', path, handler });
 };
+
+const addRoutes = R.curry((server, postHandlers) => {
+  R.keys(postHandlers)
+    .forEach(k => addRoute(server, k, postHandlers[k]));
+});
+
+module.exports = { addRoutes };;

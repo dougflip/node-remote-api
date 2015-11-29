@@ -1,9 +1,8 @@
-var ctrl = require('./controller');
-var router = require('../route-helper');
+var ctrl = require('./controller')();
 
 var postHandlers = {
-  '/keyboard/send-keys': 'sendKeys',
-  '/keyboard/send-text': 'sendText'
+  '/keyboard/send-keys': ctrl.sendKeys,
+  '/keyboard/send-text': ctrl.sendText
 }
 
-module.exports = server => router.registerRoutes(server, ctrl(), postHandlers);
+module.exports = addRoutes => addRoutes(postHandlers);

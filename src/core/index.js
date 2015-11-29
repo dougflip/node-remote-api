@@ -9,13 +9,17 @@ const keyboard = require('./keyboard/commands');
 const mouse = require('./mouse/commands');
 const system = require('./system/commands');
 
+const routeHelper = require('./route-helper');
+
 // configure the core services and return the API object
 // which will be passed to the plugins
 const configure = (server) => {
-  browserRemote(server);
-  keyboardRemote(server);
-  mouseRemote(server);
-  systemRemote(server);
+  const addRoutes = routeHelper.addRoutes(server);
+
+  browserRemote(addRoutes);
+  keyboardRemote(addRoutes);
+  mouseRemote(addRoutes);
+  systemRemote(addRoutes);
 
   return { commander, browser, keyboard, mouse, system };
 };
