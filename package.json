@@ -1,8 +1,8 @@
 {
   "name": "node-remote-api",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "REST server for Node Remote",
-  "main": "src/app.coffee",
+  "main": "src/app.js",
   "scripts": {
     "start": "babel-node src/app",
     "test:serve": "NRA_TEST_MODE=true npm start",
@@ -13,7 +13,6 @@
   "license": "MIT",
   "dependencies": {
     "babel": "^4.7.12",
-    "forever": "~0.13.0",
     "fs-extra": "~0.12.0",
     "hapi": "~6.2.1",
     "ramda": "^0.18.0"
