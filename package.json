@@ -4,20 +4,21 @@
   "description": "REST server for Node Remote",
   "main": "src/index.js",
   "scripts": {
-    "start": "babel-node src/app",
+    "start": "node src/app",
+    "start:bg": "forever start src/app.js",
     "test:serve": "NRA_TEST_MODE=true npm start",
-    "test:serve:watch": "nodemon --exec \"NRA_TEST_MODE=true babel-node\" src/app.js",
-    "test": "mocha --compilers js:babel/register test/**/*.test.js"
+    "test:serve:watch": "nodemon --exec \"NRA_TEST_MODE=true node\" src/app.js",
+    "test": "mocha test/**/*.test.js"
   },
   "author": "dougflip",
   "license": "MIT",
   "dependencies": {
-    "babel": "^4.7.12",
     "fs-extra": "~0.12.0",
     "hapi": "~6.2.1",
     "ramda": "^0.18.0"
   },
   "devDependencies": {
+    "forever": "^0.15.2",
     "mocha": "~1.21.3",
     "nodemon": "^1.8.1",
     "supertest": "~0.13.0"
