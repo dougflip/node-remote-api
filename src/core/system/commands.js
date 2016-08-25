@@ -14,6 +14,6 @@ module.exports = (commander = defaultCommander, keyboard = keyboardCommands()) =
     closeWindow: () => keyboard.sendKeys('alt+F4'),
     mute:() => commander.exec(buildVolumeCmd(0)),
     setVolume: level => commander.exec(buildVolumeCmd(level)),
-    suspend: () => commander.exec('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend')
+    suspend: () => commander.exec('systemctl suspend')
   };
 };
