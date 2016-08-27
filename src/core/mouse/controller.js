@@ -13,6 +13,8 @@ module.exports = (cmds = mouseCmds()) => {
     },
     leftClick: ctrl.passthrough(cmds.leftClick),
     rightClick: ctrl.passthrough(cmds.rightClick),
-    doubleClick: ctrl.passthrough(cmds.doubleClick)
+    doubleClick: ctrl.passthrough(cmds.doubleClick),
+    scrollUp: ctrl.passthrough(cmds.scrollUp),
+    scrollDown: ctrl.passthrough(cmds.scrollDown)
   }
 };

@@ -5,7 +5,9 @@ var noContentRequests = [
   { route: '/mouse/move-relative', data: { x: 5, y: 5 } },
   { route: '/mouse/left-click' },
   { route: '/mouse/right-click' },
-  { route: '/mouse/double-click' }
+  { route: '/mouse/double-click' },
+  { route: '/mouse/scroll-up' },
+  { route: '/mouse/scroll-down' }
 ];
 
 describe('Mouse Routes', () => {

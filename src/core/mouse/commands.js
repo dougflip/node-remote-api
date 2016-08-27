@@ -6,6 +6,8 @@ module.exports = (commander = defaultCommander) => {
     moveRelative: (x,y) => commander.exec(`xdotool mousemove_relative -- ${x} ${y}`),
     leftClick: () => commander.exec("xdotool click 1"),
     rightClick: () => commander.exec("xdotool click 3"),
-    doubleClick: () => commander.exec("xdotool click --repeat 2 1")
+    doubleClick: () => commander.exec("xdotool click --repeat 2 1"),
+    scrollUp: () => commander.exec("xdotool click 4"),
+    scrollDown: () => commander.exec("xdotool click 5")
   }
 };
