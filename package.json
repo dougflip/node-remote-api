@@ -15,7 +15,7 @@
   "dependencies": {
     "fs-extra": "~0.12.0",
     "hapi": "~6.2.1",
-    "ramda": "^0.18.0"
+    "ramda": "^0.22.0"
   },
   "devDependencies": {
     "forever": "^0.15.2",
