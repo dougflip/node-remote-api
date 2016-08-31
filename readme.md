@@ -1,37 +1,26 @@
-node-remote
+Node Remote API
 ===========
 
-A set of core automation scripts exposed over REST. This is the API for [https://github.com/dougflip/node-remote](https://github.com/dougflip/node-remote). Currently this is only targeted at Linux, but there are future plans to run [cross platform](docs/cross-platform.md).
+A set of core automation scripts exposed over HTTP. Currently only targeted at Linux (Ubuntu),
+but there are [future plans to run cross platform](docs/cross-platform.md).
 
-## Prereqs/Setup
+## Initial Setup
 
-In order for any functions that require keyboard or mouse input the following must be installed.
-If xdotool isn't installed, the server will still run perfectly fine it will just be missing functionality.
+- install [Node](https://nodejs.org/) >=6.0.0, [nvm](https://github.com/creationix/nvm) is nice for this
+- `sudo apt-get install xdotool` - [xdotool](https://github.com/jordansissel/xdotool) is awesome and used for controlling the mouse and keyboard
+- `npm install` - to install dependencies
 
-- `sudo apt-get install xdotool` Installs [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) which allows for easier mouse/keyboard scripting
-
-## Running the Server
-Install dependencies
-
-```
-npm install
-```
-
-Start the server:
+## Starting the Server
 
 ```
 npm start
 ```
 
-[localhost:9001](http://localhost:9001) should be up and running at this point.
-Check out the [docs](docs/api-routes.md) to see what is now available.
+[localhost:9001](http://localhost:9001) should be up and running at this point. Try this:
 
-## Basic Overview
-
-The above starts up a web server listening on 9001. You should be able to request the API over your local network
-by referencing the server machine by ip - something like 192.168.x.x:9001. All of the routes at this point are `POST` requests so you cannot simply navigate to them in a browser. I use [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en) to interact with the API without running the client.
-
-API requests come in over HTTP. The Node server then issues commands directly to the host machine. Most of these end up being xdotool commands to either simulate keyboard input or mouse input.
+```
+curl http://localhost:9001/system/get-volume
+```
 
 ## Core Features
 
@@ -45,13 +34,8 @@ NodeRemoteApi ships with a set of core modules that automate basic features.
 
 ## Plugins
 
-Plugins are a work in progress and do exactly what you think - add functionality to NodeRemoteApi.
+Plugins are a work in progress and do exactly what you think - add functionality to Node Remote API.
 Check out the [plugin docs](docs/plugins.md) for some detail on where that is headed.
-
-## Branches
-
-I am going to try and keep `master` stable and tested on my actual media machine.
-Work will be done against feature branches and integrated into the `dev` branch and then to `master`.
 
 ## Running Tests
 

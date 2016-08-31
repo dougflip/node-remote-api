@@ -2,6 +2,9 @@
   "name": "node-remote-api",
   "version": "0.2.0",
   "description": "REST server for Node Remote",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "main": "src/index.js",
   "scripts": {
     "start": "node src/app",
