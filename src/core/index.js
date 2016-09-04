@@ -4,10 +4,10 @@ const mouseRemote = require('./mouse');
 const systemRemote = require('./system');
 
 const commander = require('./commander');
-const browser = require('./browser/commands')();
-const keyboard = require('./keyboard/commands')();
-const mouse = require('./mouse/commands')();
-const system = require('./system/commands')();
+const browser = browserRemote.getCommands();
+const keyboard = keyboardRemote.getCommands();
+const mouse = mouseRemote.getCommands();
+const system = systemRemote.getCommands();
 
 const routeHelper = require('./route-helper');
 const baseController = require('./base-controller-helper');
@@ -17,10 +17,10 @@ const baseController = require('./base-controller-helper');
 const configure = (server) => {
   const addRoutes = routeHelper.addRoutes(server);
 
-  browserRemote(addRoutes);
-  keyboardRemote(addRoutes);
-  mouseRemote(addRoutes);
-  systemRemote(addRoutes);
+  routeHelper.configureRoutes(server, browserRemote.getConfig());
+  routeHelper.configureRoutes(server, keyboardRemote.getConfig());
+  routeHelper.configureRoutes(server, mouseRemote.getConfig());
+  routeHelper.configureRoutes(server, systemRemote.getConfig());
 
   return { baseController, addRoutes, commander, browser, keyboard, mouse, system };
 };

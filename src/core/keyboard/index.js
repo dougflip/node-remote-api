@@ -1,8 +1,16 @@
-var ctrl = require('./controller')();
+const getCommands = require('./commands');
+const ctrl = require('./controller')();
 
-var postHandlers = {
-  '/keyboard/send-keys': ctrl.sendKeys,
-  '/keyboard/send-text': ctrl.sendText
-}
+const getConfig = () => {
+  return {
+    postRoutes: {
+      '/keyboard/send-keys': ctrl.sendKeys,
+      '/keyboard/send-text': ctrl.sendText
+    }
+  };
+};
 
-module.exports = addRoutes => addRoutes(postHandlers);
+module.exports = {
+  getCommands,
+  getConfig
+};
