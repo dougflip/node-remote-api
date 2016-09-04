@@ -15,14 +15,12 @@ const baseController = require('./base-controller-helper');
 // configure the core services and return the API object
 // which will be passed to the plugins
 const configure = (server) => {
-  const addRoutes = routeHelper.addRoutes(server);
-
   routeHelper.configureRoutes(server, browserRemote.getConfig());
   routeHelper.configureRoutes(server, keyboardRemote.getConfig());
   routeHelper.configureRoutes(server, mouseRemote.getConfig());
   routeHelper.configureRoutes(server, systemRemote.getConfig());
 
-  return { baseController, addRoutes, commander, browser, keyboard, mouse, system };
+  return { baseController, commander, browser, keyboard, mouse, system };
 };
 
 module.exports = { configure };
