@@ -1,0 +1,15 @@
+[Unit]
+Description=NodeRemote API Server
+After=network.target
+
+[Service]
+User=user
+Environment=NODE_ENV=production
+WorkingDirectory=absolute-path-to-cloned-repository
+ExecStart=absolute-path-to-node-installed-binary src/app.js
+Restart=always
+RestartSec=500ms
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target
